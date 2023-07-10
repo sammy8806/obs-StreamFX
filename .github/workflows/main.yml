@@ -169,6 +169,11 @@ jobs:
         CMAKE_BUILD_TYPE: "RelWithDebInfo"
       run: |
         cmake --build "build/ci" --config ${{ env.CMAKE_BUILD_TYPE }} --target StreamFX
+    - name: "Upload Windows Release Artifacts"
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-release
+        path: "${{ github.workspace }}/build/ci"
 
   macos:
     strategy:
